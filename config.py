@@ -24,6 +24,7 @@ class APIPaths:
     USER_HOST = "http://localhost:5001/"
     SIGNUP_PATH = "api/auth/signup"
     SIGNIN_PATH = "api/auth/login"
+
     # Task
     TASK_HOST = "http://localhost:5002/"
     TASK_LIST_PATH = "api/tasks"
@@ -32,5 +33,5 @@ class APIPaths:
     TASK_DELETE_PATH = "api/tasks/"
 
     # File
-    FILE_HOST = "http://"
-    FILE_QUERY_PATH = ""
+    FILE_HOST = "http://localhost:5003/"
+    FILE_QUERY_PATH = "api/files/"

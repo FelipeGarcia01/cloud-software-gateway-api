@@ -21,4 +21,4 @@ app.register_blueprint(task_routes, url_prefix='/task')
 app.register_blueprint(file_routes, url_prefix='/file')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
