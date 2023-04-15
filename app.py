@@ -16,7 +16,7 @@ app_context.push()
 cors = CORS(app)
 jwt = JWTManager(app)
 
-app.register_blueprint(auth_routes, url_prefix='/auth')
+app.register_blueprint(auth_routes, url_prefix='/api/auth/')
 app.register_blueprint(task_routes, url_prefix='/task')
 app.register_blueprint(file_routes, url_prefix='/file')
 
