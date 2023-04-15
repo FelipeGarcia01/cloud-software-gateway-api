@@ -8,12 +8,9 @@ from config import APIPaths
 task_routes = Blueprint('tasks', __name__)
 
 
-@task_routes.route('/<int:id_user>/tasks', methods=['GET'])
+@task_routes.route('/', methods=['GET'])
 @jwt_required()
-def get_tasks(id_user: int):
-
-    if get_jwt_identity() != id_user:
-        return {"error": "user does not have permissions"}, 403
+def get_tasks():
 
     max = request.args.get('max', None)
     order = request.args.get('order', 0)

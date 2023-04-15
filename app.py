@@ -17,8 +17,8 @@ cors = CORS(app)
 jwt = JWTManager(app)
 
 app.register_blueprint(auth_routes, url_prefix='/api/auth/')
-app.register_blueprint(task_routes, url_prefix='/task')
-app.register_blueprint(file_routes, url_prefix='/file')
+app.register_blueprint(task_routes, url_prefix='/api/tasks/')
+app.register_blueprint(file_routes, url_prefix='/api/files/')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
