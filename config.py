@@ -7,7 +7,6 @@ class Config:
     PORT_NUMBER = 5001
     STATIC_FOLDER = "views/static/"
     PROPAGATE_EXCEPTIONS = True
-    SECRET_KEY = 'SFDJKGKJFD7SG987FDS?9889'
     JWT_SECRET_KEY = 'SFDJKGKJFD7SG987FDS?9889'
     DEBUG = False
 
@@ -26,11 +25,11 @@ class APIPaths:
     SIGNUP_PATH = "api/auth/signup"
     SIGNIN_PATH = "api/auth/login"
     # Task
-    TASK_HOST = "http://"
-    TASK_LIST_PATH = ""
-    TASK_CREATE_PATH = ""
-    TASK_SINGLE_QUERY_PATH = ""
-    TASK_DELETE_PATH = ""
+    TASK_HOST = "http://localhost:5002/"
+    TASK_LIST_PATH = "api/tasks"
+    TASK_CREATE_PATH = "api/tasks"
+    TASK_SINGLE_QUERY_PATH = "api/tasks/"
+    TASK_DELETE_PATH = "api/tasks/"
 
     # File
     FILE_HOST = "http://"
