@@ -1,13 +1,13 @@
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
 class Config:
-    PORT_NUMBER = 5001
     STATIC_FOLDER = "views/static/"
     PROPAGATE_EXCEPTIONS = True
-    JWT_SECRET_KEY = 'SFDJKGKJfdsFD7SG987FDS?9889dsfa'
+    JWT_SECRET_KEY = os.environ.get("SECRET_KEY", "")
     DEBUG = False
 
 
