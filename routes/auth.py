@@ -2,7 +2,7 @@ import json
 
 import requests
 from flask import Blueprint, request, Response
-from dtos.UserDTO import UserDTO
+from dtos.UserSignUpDTO import UserSignUpDTO, UserLogInDTO
 from config import APIPaths
 
 auth_routes = Blueprint('auth', __name__)
@@ -11,11 +11,13 @@ auth_routes = Blueprint('auth', __name__)
 @auth_routes.route('/signup', methods=['POST'])
 def signup():
     try:
-        request_data: UserDTO = json.loads(request.data, object_hook=UserDTO.from_json)
+        request_data: UserSignUpDTO = json.loads(request.data, object_hook=UserSignUpDTO.from_json)
         uri = APIPaths.USER_HOST+APIPaths.SIGNUP_PATH
         data = {
             "username": request_data.user,
-            "password": request_data.password
+            "password1": request_data.password1,
+            "password2": request_data.password2,
+            "email": request_data.email
         }
         response: Response = requests.post(uri, json=data, headers= {"Content-Type": "application/json"})
         response_body = json.loads(response.text)
@@ -36,10 +38,10 @@ def signup():
         return {"error": "internal error please try again"}, 500
 
 
-@auth_routes.route('/signin', methods=['POST'])
+@auth_routes.route('/login', methods=['POST'])
 def signin():
     try:
-        request_data: UserDTO = json.loads(request.data, object_hook=UserDTO.from_json)
+        request_data: UserLogInDTO = json.loads(request.data, object_hook=UserLogInDTO.from_json)
         uri = APIPaths.USER_HOST+APIPaths.SIGNIN_PATH
         data = {
             "username": request_data.user,
