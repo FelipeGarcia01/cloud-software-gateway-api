@@ -63,9 +63,9 @@ def get_task(id_task: str):
 def delete_task(id_task: str):
     uri = "{}{}{}".format(APIPaths.TASK_HOST, APIPaths.TASK_SINGLE_QUERY_PATH, id_task)
     response: Response = requests.delete(uri, headers={"Authorization": "{}".format(request.headers.get('Authorization'))})
-    response_body = json.loads(response.text)
 
     if response.status_code == 204:
         return {}, response.status_code
 
+    response_body = json.loads(response.text)
     return {"code": "fail", 'message': response_body["response"]}, response.status_code
